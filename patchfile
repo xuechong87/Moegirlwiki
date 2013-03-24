@@ -1,0 +1,48 @@
+From 5c8d6fa60f521073136012f67e66bdb72010e720 Mon Sep 17 00:00:00 2001
+From: Tyler Anthony Romeo <tylerromeo@gmail.com>
+Date: Thu, 25 Oct 2012 13:08:28 -0400
+Subject: [PATCH] Made SSL validation in Curl HTTP requests the default.
+
+Changed the default value for CURLOPT_SSL_VERIFYHOST
+to 2 rather than true. This makes sure that hostname
+validation occurs.
+
+Change-Id: Ia6535f1090627ef2def360bda37c22bff10c7f31
+---
+ includes/HttpFunctions.php |   14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
+
+diff --git a/includes/HttpFunctions.php b/includes/HttpFunctions.php
+index 32f77dc..dbd4142 100644
+--- a/includes/HttpFunctions.php
++++ b/includes/HttpFunctions.php
+@@ -45,7 +45,9 @@ class Http {
+ 	 *                          Otherwise it will use $wgHTTPProxy (if set)
+ 	 *                          Otherwise it will use the environment variable "http_proxy" (if set)
+ 	 *    - noProxy             Don't use any proxy at all. Takes precedence over proxy value(s).
+-	 *    - sslVerifyHost       (curl only) Verify hostname against certificate
++	 *    - sslVerifyHost       (curl only) Set to 2 to verify hostname against certificate
++	 *		                    Setting to 1 (or true) will NOT verify the host name. It will
++	 *		                    only check its existence. Setting to 0 (or false) disables entirely.
+ 	 *    - sslVerifyCert       (curl only) Verify SSL certificate
+ 	 *    - caInfo              (curl only) Provide CA information
+ 	 *    - maxRedirects        Maximum number of redirects to follow (defaults to 5)
+@@ -185,7 +187,15 @@ class MWHttpRequest {
+ 	protected $postData = null;
+ 	protected $proxy = null;
+ 	protected $noProxy = false;
+-	protected $sslVerifyHost = true;
++	/**
++	 * Parameter passed to Curl that specifies whether
++	 * to validate SSL certificates.
++	 *
++	 * Setting to 0 disables entirely. Setting to 1 checks
++	 * the existence of a CN, but doesn't verify it. Setting
++	 * to 2 (the default) actually verifies the host.
++	 */
++	protected $sslVerifyHost = 2;
+ 	protected $sslVerifyCert = true;
+ 	protected $caInfo = null;
+ 	protected $method = "GET";
+-- 
+1.7.9.5

@@ -1,0 +1,47 @@
+User-agent: Mediapartners-Google
+Disallow: /*R18:
+Disallow: /*Special:
+Disallow: /*%E7%89%B9%E6%AE%8A:
+
+User-agent: *
+Disallow: /skins/
+Disallow: /thumb.php?f=
+Disallow: /index.php?page=*&title=Special:Log
+Disallow: /index.php?from=*&title=Special:Allpages
+
+Disallow: /zh/
+Disallow: /zh-hans/
+Disallow: /zh-hant/
+Disallow: /zh-cn/
+Disallow: /zh-tw/
+
+Disallow: /*MediaWiki:
+Disallow: /*MediaWiki_talk:
+Disallow: /*Talk:
+Disallow: /*%E8%AE%A8%E8%AE%BA:
+Disallow: /*%E4%B8%BB%E9%A2%98:
+Disallow: /*User_talk:
+Disallow: /*action=
+Disallow: /*redlink=
+Disallow: /*oldid=
+Disallow: /*diff=
+Disallow: /*printable=
+Disallow: /*redirect=
+Disallow: /*Special:
+Disallow: /*%E7%89%B9%E6%AE%8A:
+Disallow: /*&subcatfrom=
+Disallow: /*&subcatuntil=
+Disallow: /*&returnto=
+Disallow: /*&pagefrom=
+Disallow: /*&type=
+Disallow: /*&variant=zh
+Disallow: /*&variant=zh-hans
+Disallow: /*&variant=zh-hant
+
+User-agent: Sogou Spider
+Disallow: /
+
+User-agent: Sogou web spider
+Disallow: /
+
+sitemap: http://wiki.moegirl.org/sitemap/sitemap-index-wiki.xml
