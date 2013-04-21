@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Simplified / Traditional Chinese conversion tables
  *
@@ -10160,7 +10160,6 @@ $zh2Hans = array(
 '幫' => '帮',
 '幬' => '帱',
 '幹' => '干',
-'幺' => '么',
 '幾' => '几',
 '庫' => '库',
 '廁' => '厕',

@@ -1,0 +1,34 @@
+This is the historical changelog for the HeadersFooters extension.
+This extension is pay-what-you want, please consider purchasing it.
+
+  http://olivierbeaton.com/mediawiki#headersfooters
+
+I always love hearing from my users,
+
+  email olivier.beaton@gmail.com
+
+any comments, issues, suggestions or complaints.
+
+== 0.1 (2011-09-27) ==
+features:
+* Allows you to add Headers and Footer wikitext to pages
+* i18n support, see the translations in the .i18n file
+* Scans Global for Header/Footer (default off)
+* Scans Namespaces for Header/Footer
+* Scans Categories for Header/Footer
+* Scans Pages for Header/Footer
+* Header/Footer hidden in NS_MEDIAWIKI/HeadersFooters/ (thanks Amgine)
+* Extension:Configure support
+
+testing:
+* svn: trunk 2011-09-27, 1.18alpha 2011-09-27, 1.17branch 2011-09-27
+* releases: 1.17.0, 1.16.0, 1.15.5
+
+issues:
+* after defining a header/footer you may need to do a &action=purge on affected pages
+* you cannot define header/footer for Special: pages
+* you cannot define header/footer for gendered namespaces
+
+note:
+* does not run in NS_MEDIAWIKI
+* thanks Amgine for extension name

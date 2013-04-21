@@ -296,5 +296,7 @@ table.wikitable, table.TablePager{padding:0.3em;}
 a.new, #p-personal a.new {color: #ba0000;}
 a.new:visited, #p-personal a.new:visited {color: #a55858;}
 .heimu {text-decoration:line-through;}
-tr,td {display: inline;}
 li {list-style-type: none;}
+tr,td {display: inline;}
+.infotemplate tbody tr{display:table-row;}
+.infotemplate tbody tr td{display:table-cell;}

@@ -44,7 +44,7 @@ class wptouchTemplate extends QuickTemplate {
 	<head>
 		<meta http-equiv="Content-Type" content="<?php $this->text('mimetype') ?>; charset=<?php $this->text('charset') ?>" />
 		<meta name="robots" content="noindex, nofollow" />
-		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
 		<?php $this->html('headlinks') ?>
 		<title><?php $this->text('pagetitle') ?></title>
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -59,9 +59,9 @@ class wptouchTemplate extends QuickTemplate {
 			}
 		</script>
 <script type="text/javascript">
-
   var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-18669495-10']);
+  _gaq.push(['_setAccount', 'UA-18669495-4']);
+  _gaq.push(['_setDomainName', 'moegirl.org']);
   _gaq.push(['_trackPageview']);
 
   (function() {
@@ -69,7 +69,6 @@ class wptouchTemplate extends QuickTemplate {
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-
 </script>
 	</head>
 <body class="skated-wptouch-bg">
@@ -218,6 +217,23 @@ class wptouchTemplate extends QuickTemplate {
 <div id="drop-fade">
  	<a id="searchopen" class="top" href="#" onclick="bnc_jquery_search_toggle(); return false;">Search</a>
 </div>
+
+<?php if ($this->data['loggedin'] ): ?>
+<?php else: ?>
+<div class="ads-main"><div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1103773884433732";
+/* ÃÈ°ÙÒÆ¶¯°æ */
+google_ad_slot = "5084370860";
+google_ad_width = 320;
+google_ad_height = 50;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+</div>
+<?php endif ?>
 
 <div class="content">
 	<div class="post">

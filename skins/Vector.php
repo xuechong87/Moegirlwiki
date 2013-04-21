@@ -159,6 +159,22 @@ class VectorTemplate extends BaseTemplate {
 		<div id="content" class="mw-body">
 			<a id="top"></a>
 			<div id="mw-js-message" style="display:none;"<?php $this->html( 'userlangattributes' ) ?>></div>
+<?php if ($this->data['loggedin'] ): ?>
+<?php else: ?>
+<div class="googleAD ads-main"><div>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-1103773884433732";
+/* 顶部广告 */
+google_ad_slot = "0628508764";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+</div>
+<?php endif ?>
 			<?php if ( $this->data['sitenotice'] ): ?>
 			<!-- sitenotice -->
 			<div id="siteNotice"><?php $this->html( 'sitenotice' ) ?></div>
@@ -212,21 +228,16 @@ class VectorTemplate extends BaseTemplate {
 				<!-- /catlinks -->
 				<?php endif; ?>
 <?php if ($this->data['loggedin'] ): ?>
-<div id="googleAD" class="ads-main"><a href="http://wiki.moegirl.org/萌娘百科:捐款" target="_blank">您可以捐款以帮助我们更好的运作</a></div>
 <?php else: ?>
-<div id="googleAD" class="ads-main"><div>
-<script type="text/javascript"><!--
-google_ad_client = "ca-pub-1103773884433732";
-/* 正文留言间广告 */
-google_ad_slot = "5571542666";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
+<div class="googleAD"><div>
+<script type="text/javascript"> 
+alimama_pid="mm_41854443_3509847_11502027"; 
+alimama_width=760; 
+alimama_height=90; 
+</script> 
+<script src="http://a.alimama.cn/inf.js" type="text/javascript"> 
 </script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script></div>
-</div>
+</div></div>
 <?php endif ?>
 				<?php if ( $this->data['dataAfterContent'] ): ?>
 				<!-- dataAfterContent -->
@@ -286,11 +297,21 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 		</div>
 		<!-- /footer -->
 		<?php $this->printTrail(); ?>
+<?php if ($this->data['loggedin'] ): ?>
+<?php else: ?>
+<div class="googleAD"><div>
 <script type="text/javascript">
-
+/*萌百底部960*90创建2013-4-19*/
+var cpro_id = "u1265861";
+</script>
+<script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+</div></div>
+<?php endif ?>
+<script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-18669495-4']);
   _gaq.push(['_setDomainName', 'moegirl.org']);
+  _gaq.push(['_setAllowLinker', true]);
   _gaq.push(['_trackPageview']);
 
   (function() {
@@ -298,7 +319,6 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-
 </script>
 	</body>
 </html>

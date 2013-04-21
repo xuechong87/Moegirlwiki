@@ -239,12 +239,6 @@ class ApiEditPage extends ApiBase {
 		global $wgTitle, $wgRequest;
 
 		$req = new DerivativeRequest( $this->getRequest(), $requestArray, true );
-		
-$articleContext = new RequestContext;
-$articleContext->setRequest( $req );
-$articleContext->setWikiPage( $pageObj );
-$articleContext->setUser( $this->getUser() );
-$articleObj->setContext( $articleContext );
 
 		// Some functions depend on $wgTitle == $ep->mTitle
 		// TODO: Make them not or check if they still do

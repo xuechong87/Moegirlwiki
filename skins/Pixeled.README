@@ -1,0 +1,25 @@
+This is the Pixeled skin for MediaWiki 1.18 and later.
+
+For a skin supporting an earlier version, please see http://www.memorydeleted.com/?p=210
+
+DIRECTIONS
+==========
+1. Unpack all the files into the "skins" directory of your MediaWiki installation.
+
+2. Enable the use of the skin.
+	In the LocalSettings.php file of your MediaWiki installation, you will need to update the $wgDefaultSkin value.
+
+	If it is the default value, the configuration lines will look something like this:
+
+		## Default skin: you can change the default skin. Use the internal symbolic
+		## names, ie 'standard', 'nostalgia', 'cologneblue', 'monobook', 'vector':
+		$wgDefaultSkin = 'vector';
+
+	These lines can be updated to the following:
+		## Default skin: you can change the default skin. Use the internal symbolic
+		## names, ie 'standard', 'nostalgia', 'cologneblue', 'monobook', 'vector':
+		$wgDefaultSkin = 'pixeled';
+
+
+Good luck and enjoy!
+

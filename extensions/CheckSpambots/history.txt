@@ -1,0 +1,407 @@
+Date: 21-09-2008
+
+	Modification corrected by my friend SysAdMini at MalwareDomainList (cheers dude :))
+	.... well, it is only my second PHP script, and I didn't write all of this myself hehe.
+
+Date: 21-11-2008
+
+	+ Added error handling for those using < PHP 5
+	+ Added error handling for those that don't have SimpleXMLElement available
+	* Cleaned up HTML/CSS code again
+	* "Prettied up" results
+	* Moved text to en.php to allow for localization
+	* Creation of text file with spammers details is now optional (see config.php)
+	* Everything except index.php and the images folder, now moved above htdocs root for security
+	* Cleaned up code formatting
+	* fSpamlist and StopForumSpam checks now split, so checking an e-mail address is no longer mandatory
+
+Date: 26-11-2008
+
+	+ Code copied to check_spammers_plain.php and modified (mainly including HTML being removed) to allow an HTML free version for those wanting to have the checks in their own software (e.g. phpBB)
+
+Date: 27-11-2008
+
+	+ Updated to allow those without SimpleXMLElement available, to still use the functions
+
+Date: 01-12-2008
+
+	+ Now allows querying Projecthoneypot.org (API key required)
+	* Modified Spamhaus query code (now also includes description of the return codes)
+
+Date: 06-12-2008
+
+	+ Now includes the Spamhaus "friendly" return codes in the actual results
+
+Date: 08-12-2008
+
+	+ Now includes Spamcop
+
+Date: 09-12-2008
+
+	- DSBL check removed as the DSBL is apparently dead;
+		Ref: http:www.dsbl.org
+
+Date: 10-12-2008
+
+	+ Check DNS Blacklists (spamhaus etc) now optional when using check_spammers_plain.php
+
+		To leave out the DNS Blacklists check, just append &dbl=no to the querystring
+
+Date: 13-12-2008
+
+	+ Added additional information concerning listings in ProjectHoneyPot
+
+		If an IP is found to be listed in PHP, if using the main UI, you will be given detailed information.
+		If using the check_spammers_plain.php script, you will be provided with it's "simple" listing (e.g. 127.x.x.x)
+
+			The 127 address results are;
+
+				Octet #1: 127 - static
+				Octet #2: 0-255 - Number of days the IP was last seen
+				Octet #3: 0-255 - Threat score
+				Octet #4: 0-7 - Visitor Type
+
+			Detailed info: http:www.projecthoneypot.org/httpbl_api.php
+			
+Date: 18-12-2008
+
+	* Licence changed to Creative Commons Attribution
+
+		http:creativecommons.org/licenses/by-sa/2.0/uk/
+			
+Date: 20-12-2008
+
+	* Added options to selectively disable individual DNS blacklists when using check_spammers_plain.php
+
+		- For example, to disable the spamhaus query, you would change;
+
+			check_spammers_plain.php?
+
+		To;
+
+			check_spammers_plain.php?sh=no
+
+Date: 04-01-2009
+
+	* Fixed bug in script when username/email addresses contain spaces
+
+Date: 11-01-2009
+
+	+ Now uses cURL (if available) if file_get_contents() is not available
+
+Date: 22-01-2009
+
+	+ Optionally submit spammers automagically to fspamlist.com (API required)
+
+Date: 28-01-2009
+
+	+ View spammers you've asked the filter to log to text file
+	+ View spammers you've had your mod email to you (assumes you've used the same email format as outlined on the TeMerc forums)
+	* Fixed spammers particulars not being logged to text file properly
+
+Date: 06-02-2009
+
+	+ View spammers you've asked the filter to log to text file
+
+Date: 11-02-2009
+
+	- Removed the PHP5 checks since it now uses cURL if the PHP5 only methods aren't available
+
+Date: 12-02-2009
+
+	- BotScout, fSpamlist and StopForumSpam query routines re-written in check_spammers_plain.php to improve efficiency
+	- True/false echo in check_spammers_plain.php moved to just below "END CHECK DNSBL" to fix a problem with PHP4
+
+Date: 19-02-2009
+
+	* Fixed $bln_SaveToFile ignored when set to false
+	* Moved version history from config.php to history.txt
+
+	- Removed fSpamlist submission routine from check_spammers.php for those that want to test it via the web interface
+
+		DO NOT TEST IT WITH YOUR OWN DATA MIXED WITH SPAMMER DATA IF YOU'VE GOT YOUR FSPAMLIST SUBMISSION API KEY ENTERED!!
+
+	+ Added counter routine (requested)
+	+ Added simple e-mail validation (also does IP lookup to ensure the hostname actually resolves - it's not a valid e-mail if it doesn't)
+	+ Added simple IP validation
+	+ Added Version History link to index.php footer (next to "Get the code!")
+	+ Added spammers blocked (next to "Version History")
+
+Date: 20-02-2009
+
+	+ Added ability to easily disable checking of StopForumSpam and fSpamlist via config.php
+
+		Ref: http://hphosts.blogspot.com/2009/02/stopforumspam-offline.html
+
+Date: 22-02-2009
+
+	+ Added function to check if server is online
+	+ Added notes to top of all files
+	* Moved getURL function to functions.php
+	* Re-written e-mail validation as a function and moved to functions.php
+	* Replaced IP validation with function by Mike (botscout.com)
+	* Moved old IP validation routine to functions.php and re-written as function
+	* Partial re-write of Spamhaus query routine in check_spammers_plain.php
+	* Fixed fSpamList SimpleXMLElement check (was only checking $xml->Email instead of all 3)
+	* Modified ProjectHoneyPot query so "Search Engine" and "Suspicious" aren't flagged when using check_spammers_plain.php
+	* Fixed SpamHaus query so PBL and CBL aren't flagged when using check_spammers_plain.php
+
+Date: 25-02-2009
+
+	+ Added error handling in case file_put_contents() is not available (used for the counter and dumping results to text file)
+	+ Added error handling in case get_headers() is not available (used for the isURLOnline() function)
+
+	Special thanks to ShadowPuterDude (malwareteks.com) for reporting these issues to me
+
+Date: 26-02-2009
+
+	+ Added error handling in case SBST is forced to use PHP 5 on a system with PHP4 + 5 via .htaccess
+	* Modified check_spammers.php so the SimpleXMLElement availability check is done prior to the queries running
+	* Modified isURLOnline to check for PHP5 (skips and defaults to true if < PHP 5)
+
+	Special thanks to ShadowPuterDude (malwareteks.com) for reporting the above issues to me
+
+	+ Added selective matching so you can have the SBST block only if more than one of the spammers details match (see config.php) (requested)
+
+Date: 11-03-2009
+
+	+ Added extra match options for $BaseMatch var (you can now use multiple match selections without manually editing the switch codes)
+	* Fixed counter increments when check_spammers_plain.php is queried, regardless of whether or $spambot = true
+	* Moved counter control to IncreaseCatchCount() function to save code duplication
+	* Moved text file controls (for logging spammers) to LogSpammerToFile function to save code duplication
+	* Username passed is now wrapped in htmlentities() and urlencode() for additional security (albeit not much)
+	+ Added optional logging to MySQL database (created automagically if it doesn't exist). To enable this, see config.php
+
+Date: 24-03-2009
+
+	+ Added DroneBL lookup (dronebl.org)
+	+ Added extra error handling to CreateDatabase() function
+	* Modified CreateDatabase() function (will now try to create tables even if the DB already exists)
+
+		Ref: http://www.stopforumspam.com/forum/p3640-Yesterday-8%3A34#p3640
+
+	* Fixed error in LogSpammerToDB() function
+
+		Ref: http://www.stopforumspam.com/forum/p3646-Yesterday-12%3A00#p3646
+
+	* Improved W3C HTML validation
+	* Changed $BaseMatch default value to "" (so it works as it did prior to selective matching being added)
+
+Date: 28-03-2009
+
+	* Modified StopForumSpam query to allow for newly introduced query limit
+
+		http://www.stopforumspam.com/forum/t573-Rate-Limiting
+
+	* Modified Spamhaus query when using the web interface (CBL and PBL are still shown, but not flagged as spammer)
+	* Default config.php renamed to config.sample.php to allow for easier upgrade
+	* Default counter.php renamed to counter.sample.php to allow for easier upgrade
+	* Updated installation notes
+
+Date: 01-04-2009
+
+	* Fixed StopForumSpam limit exceeded message accidentally displayed when it hasn't been (they've not implemented it yet, so it couldn't have been)
+
+Date: 23-04-2009
+
+	* Fixed MySQL database/tables/fields not created
+	* Fixed sPHPAPI missing $ in a couple places
+
+		- Special thanks to DrDrrae (www.drdrrae.com)
+
+Date: 30-04-2009
+
+	* Fixed minor bug in check_spammers_plain.php
+
+Date: 14-05-2009
+
+	* Fixed LogSpammerToFile function (I forgot to replace $savetofolder with $sLogPath when moving it to a function)
+	+ Added extra error handling for cases where file_get_contents is enabled, but allow_url_fopen is disabled
+
+		http://temerc.com/forums/viewtopic.php?f=71&t=6789
+
+	* Modified view_spammers.php (line 27 & 31) to show the MySQL error being displayed;
+
+		http://temerc.com/forums/viewtopic.php?p=3437783#p3437783
+
+	* Moved more messages into en.php
+	* Cleaned up HTML in check_spammers.php
+	* Few other minor code changes
+
+Date: 26-05-2009
+
+	+ Added check to ensure config.php exists (will attempt to copy config.sample.php if it does not)
+	* Modified check_spammers so result is at the top of the table instead of the bottom (requested)
+	* Fixed bug in view_spammers.php display
+	+ Added error handling incase config.php and counter.txt are missing
+	* Default GMail server now has /novalidate-ssl by default
+	+ config.php now contains date_default_timezone_set('UTC')
+	+ config.php now contains error_reporting(E_ALL ^ E_NOTICE) to aid in debugging
+
+Date: 13-06-2009
+
+	+ Added function GetSpammerCount
+	* Modified index.php so it uses GetSpammerCount to obtain the spammer count from the DB if $bln_SaveToDB is enabled, and counter.txt if it isn't.
+	* Modified spammer list output when viewing e-mail reports
+	* Modified IMAP code so e-mails are sorted by date order
+	* Modified spammer list output and display when viewing text/MySQL records
+	* Fixed form (index.php) display on Opera
+
+Date: 19-06-2009
+
+	* Fixed GetSpammerCount() function
+
+		Ref: http://forum.hosts-file.net/viewtopic.php?f=68&t=1613
+
+	+ Added last modified date into .php files
+	+ Added extra support information into .php files (links to SBST forums at forum.hosts-file.net and temerc.com/forums)
+	+ Added Undisposable lookup (undisposable.net)
+
+		This lookup is enabled by default. To disable it, set $bBlockDisposable=FALSE in config.php
+
+	+ Added AHBL (Abusive Hosts Black List) lookup (ahbl.org)
+
+		This lookup is a DNSBL lookup and can be disabled by appending "ahbl=no" to the querystring
+
+	* Changed $CheckSFS to $bCheckSFS and $CheckFSL to $bCheckFSL
+	* Commented out counter table creation in CreateDatabase() function as it's not needed at present
+	* Readme.txt updated (section 8 - Installation notes) with information for those experiencing issues with the SBST not automatically creating the MySQL database
+
+Date: 20-07-2009
+
+	+ Added Tornevall DNSBL
+	+ Added EFNet DNSBL
+
+Date: 21-07-2009
+
+	- Removed spamtrap.tornevall.org (owner says it was abandoned some time ago)
+
+Date: 03-08-2009
+
+	+ Added Tor Exit Node DNSBL (torproject.org)
+	+ Added pagination when viewing MySQL records
+	+ Added line breaks for very long usernames
+	* Updated fSpamlist query URL
+
+Date: 20-08-2009
+
+	* Modified SBST to support new fSpamlist API (note, an FSL API key is now required)
+
+Date: 25-08-2009
+
+	* Fixed MySQL view when there is less than 100 records
+	* Fixed fSpamlist query for check_spammers_plain.php (made a typo in the URL)
+	* Changed SFS link in web UI to stopforumspam/search (requested)
+	* Fixed BotScout query (I broke it in the previous version)
+
+Date: 23-09-2009
+
+	* Fixed minor bug with StopForumSpam routines
+
+Date: 29-09-2009
+
+	* Modified paths for include files, now uses __FILE__ to detect SBST folder (requested)
+	+ Added additional Sorbs DNSBL
+	* Period added to end of hostnames for DNSBL checks (requested)
+	* Minor modification to fSpamlist routine that caused a problem for the BotScout query when no username/e-mail was passed
+
+Date: 17-11-2009
+
+	* Fixed bug in view_spammers.php and view_spammers_mail.php
+
+		Ref: http://temerc.com/forums/viewtopic.php?f=71&t=7606
+
+Date: 18-11-2009
+
+	* Fixed another bug in view_spammers.php and view_spammers_mail.php
+
+		Sorry folks!
+
+Date: 29-01-2010
+
+	* Modified Sorbs lookup
+	* Fixed spambots folder path
+	+ Added manual submission to fSpamlist/StopForumSpam (requested)
+
+Date: 30-01-2010
+
+	* Fixed bug when SBST run on Windows Server systems (doesn't seem to like some of the error handling)
+	* Fixed Colours for new manual submission ;o)
+
+Date: 12-02-2010
+
+	+ check_spammers_plain.php now checks MySQL database to see if spammer has already been seen, and bans if yes (to save calls to blacklists).
+
+Date: 21-03-2010
+
+	- Temporarily disabled undisposable.net queries until we find out whether or not the service is coming back online
+
+		Pretty sure it isn't as it's now registered to someone in Turkey (as of Jan 2010).
+
+Date: 25-03-2010
+
+	- Removed undisposable.net query and related code
+	+ Added additional error handling
+	+ Added whitelist facility (whitelist.txt)
+
+		Ref: http://support.it-mate.co.uk/?mode=Products&act=How_To&p=spambotsearchtool#71
+
+	+ Added additional code to prevent submit.php being accessed directly
+
+Date: 25-03-2010
+
+	* Fixed strpos error when checking empty whitelist.
+
+Date: 26-03-2010
+
+	* Fixed bug in check_spammers.php
+
+		Ref: http://www.stopforumspam.com/forum/p8664-Yesterday-8%3A41#p8664
+
+Date: 02-04-2010
+
+	* Fixed display of results (now properly centered)
+	* Modified check_spammers.php (submission to FSL/SFS)
+	* Fixed IsValidEmail function
+	+ Added resolve_host function (makes things a little cleaner)
+	* Modified query so username + email are case insensitive.
+
+Date: 13-04-2010
+
+	* Fixed a bug in functions.php (line 219)
+
+		Ref: http://temerc.com/forums/viewtopic.php?p=3442085#p3442085
+
+	* Fixed a bug in check_spammers_plain.php (line 128)
+
+		Ref: http://temerc.com/forums/viewtopic.php?p=3442078#p3442078
+
+Date: 22-09-2010
+
+	* Fixed code error (!==False should be !=False)
+
+Date: 12-02-2011
+
+	* Fixed bug in check_spammers_plain.php
+	* Misc other fixes
+	+ Added drone.abuse.ch
+	+ Added zeustracker.abuse.ch
+	+ Added spam.abuse.ch
+	+ Added httpbl.abuse.ch
+
+Date: 20-02-2011
+
+	+ Added $bFailOnInvalidEmail
+
+		Only used by check_spammers_plain.php, allows you to reject a registration if the e-mail address is invalid (see config.php)
+
+Date: 22-02-2011
+
+	* Fixed bug in functions.php
+	* Modified IsValidEmail() function
+	* Changed strpos() calls to substr_count()
+	* Fixed bug in check_spammers_plain.php that resulted in invalid e-mails being allowed
+	+ Added code to check for Bad Result error when querying blacklists
+	* Contains modifications (e.g. re-written isURLOnline() and getURL() functions) and bug fixes with thanks to Dan McCormick.
+
+		http://www.cedit.biz/joomla-extensions/18-registration-validator/22-block-disposable-email-addresses

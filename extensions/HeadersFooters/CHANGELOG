@@ -1,0 +1,70 @@
+This is the changelog for the HeadersFooters extension.
+This extension is pay-what-you want, please consider purchasing it.
+
+  http://olivierbeaton.com/mediawiki#headersfooters
+
+I always love hearing from my users,
+
+  email olivier.beaton@gmail.com
+
+any comments, issues, suggestions or complaints.
+
+== 0.2.3 (2011-11-04) ==
+bugfix:
+* wikis with table prefixes did not update the cache properly, really fixed.
+
+notes:
+* I really can't stress enough how experimental this extension it,
+ it still needs a lot of testing to work out edge cases, please report them!
+* switched to a more permissive and correct bsd-2-clause license agreement for commits
+
+testing:
+* releases: 1.17.0
+
+== 0.2.2 (2011-10-12) ==
+bugfix:
+* wikis with tables prefixes did not update properly, fixed.
+
+testing:
+* releases: 1.17.0
+
+== 0.2.1 (2011-10-02) ==
+bugfix:
+* Edit box was showing header/footer wikitext since 2.0, fixed
+* Caches for affected pages are invalidated, should save you a action=purge (thanks DanielFriesen)
+* Special:HeadersFooters now only shows what is enabled
+* Special:HeadersFooters header editing for some special pages
+* Special:Headersfooters' header now supported
+* Special:Headersfooters form remembers values after error messages 
+* now tied into main debugging framework
+
+testing:
+* svn: trunk 2011-10-02, 1.18alpha 2011-10-02, 1.17branch 2011-10-02
+* releases: 1.17.0, 1.16.0, 1.15.5
+
+== 0.2 (2011-10-01) ==
+features:
+* new Special:HeadersFooters page for easy header/footer creation/editing
+* compatibility with MW messages, better i18n support (thanks Alphos, bawolff)
+
+breaking changes / requires admin action:
+* switch to MW messages changes all header/footer urls, you will need to move them! Sorry!
+  The new method is much more robust, the old method can potentially break other
+  pages/messages in your wiki. i18n support is also improved as messages are unlikely
+  to break between MW translation changes of namespaces.
+* $wgHeadersFootersUsingPages's new default is false for speed reasons, 
+  if you use or want page headers/footers please set it to true in your LocalSettings.php 
+
+notes:
+* switched hook ParserBeforeStrip to ArticleAfterFetchContent for better support and less hacks (thanks Dantman)
+* cleaned up functions and simplified the extension, making use of more core messaging functions, Xml object
+* special thanks to RoanKattouw, DanielFriesen and Dantman for coding advice
+
+testing:
+* svn: trunk 2011-10-01, 1.18alpha 2011-10-01, 1.17branch 2011-10-01
+* releases: 1.17.0, 1.16.0, 1.15.5
+
+issues:
+* after defining a header/footer you may need to do a &action=purge on affected pages
+
+Please see HISTORY for more changes.

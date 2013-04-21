@@ -1,0 +1,28 @@
+This is the readme for the HeadersFooters extension.
+This extension is pay-what-you want, please consider purchasing it.
+
+  http://olivierbeaton.com/mediawiki#headersfooters
+
+I always love hearing from my users,
+
+  email olivier.beaton@gmail.com
+
+any comments, issues, suggestions or complaints.
+
+Detailed technical docs can be found at:
+
+  http://www.mediawiki.org/wiki/Extension:HeadersFooters
+
+== Installation ==
+
+To install this extension, add the following to LocalSettings.php:
+require_once("$IP/extensions/HeadersFooters/HeadersFooters.php");
+#add configuration parameters here
+
+== Support ==
+
+It's hoped that you will enjoy the extension, and if you do, consider purchasing it.
+
+If you find a bug or wish to make a feature request, please contact the author by email olivier.beaton@gmail.com. 
+
+The talk page is also monitored. The author is often in the #mediawiki irc channel under the nick Finlay.
