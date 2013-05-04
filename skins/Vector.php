@@ -161,19 +161,13 @@ class VectorTemplate extends BaseTemplate {
 			<div id="mw-js-message" style="display:none;"<?php $this->html( 'userlangattributes' ) ?>></div>
 <?php if ($this->data['loggedin'] ): ?>
 <?php else: ?>
-<div class="googleAD ads-main"><div>
-<script type="text/javascript"><!--
-google_ad_client = "ca-pub-1103773884433732";
-/* 顶部广告 */
-google_ad_slot = "0628508764";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script></div>
-</div>
+<div class="ads-holder">
+
+	<div class="ads-main">
+	<a href="http://manyanshe.taobao.com/"><img src="http://img.moegirl.org/advertise/manyanshe/201304a.jpg" width="728" height="90" /></a>
+	</div>
+	
+ </div>
 <?php endif ?>
 			<?php if ( $this->data['sitenotice'] ): ?>
 			<!-- sitenotice -->
@@ -229,16 +223,33 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 				<?php endif; ?>
 <?php if ($this->data['loggedin'] ): ?>
 <?php else: ?>
-<div class="googleAD"><div>
-<script type="text/javascript"> 
-alimama_pid="mm_41854443_3509847_11502027"; 
-alimama_width=760; 
-alimama_height=90; 
-</script> 
-<script src="http://a.alimama.cn/inf.js" type="text/javascript"> 
-</script>
-</div></div>
-<?php endif ?>
+<div class="ads-holder">
+ 
+ 
+	<div class="ads-main">
+	<script type="text/javascript"><!--
+	google_ad_client = "ca-pub-1103773884433732";
+	/* 留言器广告 */
+	google_ad_slot = "5571542666";
+	google_ad_width = 728;
+	google_ad_height = 90;
+	//-->
+	</script>
+	<script type="text/javascript"
+	src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+	</div>
+
+	<div class="ads-main">
+	<script type="text/javascript">
+	/*萌百底部960*90*/
+	var cpro_id = "u1265861";
+	</script>
+	<script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+	</div>
+	
+ </div>
+ <?php endif ?>
+
 				<?php if ( $this->data['dataAfterContent'] ): ?>
 				<!-- dataAfterContent -->
 				<?php $this->html( 'dataAfterContent' ); ?>
@@ -297,16 +308,7 @@ alimama_height=90;
 		</div>
 		<!-- /footer -->
 		<?php $this->printTrail(); ?>
-<?php if ($this->data['loggedin'] ): ?>
-<?php else: ?>
-<div class="googleAD"><div>
-<script type="text/javascript">
-/*萌百底部960*90创建2013-4-19*/
-var cpro_id = "u1265861";
-</script>
-<script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
-</div></div>
-<?php endif ?>
+
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-18669495-4']);

@@ -1,0 +1,36 @@
+/*!
+ * VisualEditor UserInterface Context styles.
+ *
+ * @copyright 2011-2013 VisualEditor Team and others; see AUTHORS.txt
+ * @license The MIT License (MIT); see LICENSE.txt
+ */
+
+.ve-ui-context {
+	position: absolute;
+	z-index: 2;
+}
+
+.ve-ui-context-inspectors, .ve-ui-context-menu {
+	position: absolute;
+	z-index: 2;
+}
+
+.ve-ui-context-toolbar {
+	white-space: nowrap;
+}
+
+.ve-ui-context-toolbar .ve-ui-toolbarGroup {
+	border: none;
+	padding: 0.1em;
+}
+
+.ve-ui-context-toolbar .ve-ui-buttonTool,
+.ve-ui-context-toolbar .ve-ui-buttonTool:hover {
+
+	border: none;
+}
+
+.ve-ui-context-toolbar .ve-ui-buttonTool:active,
+.ve-ui-context-toolbar .ve-ui-buttonTool-active {
+	background-image: none;
+}

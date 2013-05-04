@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18-dev, created on 2013-04-21 09:15:42
+<?php /* Smarty version 2.6.18-dev, created on 2013-05-04 01:07:34
          compiled from wiki:bilitest */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'wiki:bilitest', 5, false),)), $this); ?>

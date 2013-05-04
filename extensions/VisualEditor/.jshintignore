@@ -1,0 +1,8 @@
+api
+docs/
+modules/jquery
+modules/qunit
+modules/rangy
+modules/unicodejs
+modules/parser
+tests/parser

@@ -1,0 +1,61 @@
+/*!
+ * VisualEditor UserInterface Toolbar styles.
+ *
+ * @copyright 2011-2013 VisualEditor Team and others; see AUTHORS.txt
+ * @license The MIT License (MIT); see LICENSE.txt
+ */
+
+.ve-ui-toolbar {
+	border-bottom: solid 1px #ccc;
+	position: relative;
+	/* @embed */
+	background-image: url(images/fade-up.png);
+	background-position: left bottom;
+	background-repeat: repeat-x;
+	padding-bottom: 1px;
+	line-height: 1em;
+}
+
+.ve-ui-toolbarGroups,
+.ve-ui-actions,
+.ve-ui-toolbar-shadow {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.ve-ui-toolbarGroup {
+	display: inline-block;
+	padding: 0.25em;
+	border-right: solid 1px #f0f3f5;
+	vertical-align: middle;
+}
+
+.ve-ui-toolbar .ve-ui-toolbarGroups {
+	float: left;
+}
+
+.ve-ui-toolbarDivider {
+	display: inline-block;
+	width: 1px;
+	height: 24px;
+	margin: 0.5em 0 0.5em 0.5em;
+	background-color: #ddd;
+}
+
+.ve-ui-toolbarLabel {
+	display: inline-block;
+	padding: 0.5em 0.75em;
+	line-height: 22px;
+	font-size: 0.8em;
+	color: #555;
+	vertical-align: top;
+}
+
+/* TODO: Rename this class */
+.ve-ui-actions {
+	float: right;
+	padding: 0.25em;
+}

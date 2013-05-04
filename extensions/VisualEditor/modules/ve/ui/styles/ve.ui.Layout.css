@@ -1,0 +1,40 @@
+/*!
+ * VisualEditor UserInterface Layout styles.
+ *
+ * @copyright 2011-2013 VisualEditor Team and others; see AUTHORS.txt
+ * @license The MIT License (MIT); see LICENSE.txt
+ */
+
+/* ve.ui.GridLayout */
+
+.ve-ui-gridLayout {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+/* ve.ui.PanelLayout */
+
+.ve-ui-panelLayout {
+	position: absolute;
+}
+
+/* ve.ui.EditorPanelLayout */
+
+.ve-ui-editorPanelLayout {
+	padding: 1.5em;
+	width: 100%;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+.ve-ui-editorPanelLayout > .ve-ui-labeledElement-label {
+	font-size: 1.5em;
+	padding-left: 1.75em;
+	margin-bottom: 1em;
+	background-position: left center;
+	background-repeat: no-repeat;
+}

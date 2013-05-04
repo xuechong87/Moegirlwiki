@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18-dev, created on 2013-04-21 13:46:00
+<?php /* Smarty version 2.6.18-dev, created on 2013-05-05 04:34:19
          compiled from wiki:Donate */ ?>
 
 <div class="common-box anonnotice">

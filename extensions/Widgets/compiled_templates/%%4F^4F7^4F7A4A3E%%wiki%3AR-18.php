@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18-dev, created on 2013-04-21 13:48:41
+<?php /* Smarty version 2.6.18-dev, created on 2013-05-05 06:09:57
          compiled from wiki:R-18 */ ?>
 <script language="javascript"> 
 if(!$.cookie("x18"))
